@@ -113,6 +113,32 @@
             overflow-y: auto;
             padding: 10px;
             box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+            display: block;
+            /* Default is visible */
+            transition: transform 0.3s ease;
+        }
+
+        /* Hide sidebar on mobile */
+        @media (max-width: 768px) {
+            #sidebar {
+                display: none;
+                position: absolute;
+                left: -300px;
+                /* Hide initially off-screen */
+                top: 0;
+                height: 100%;
+            }
+
+            #sidebar.show {
+                display: block;
+                transform: translateX(300px);
+                /* Show sidebar */
+            }
+
+            .navbar .mobile-nav-toggle {
+                display: block;
+                cursor: pointer;
+            }
         }
 
         #categoryFilter {
